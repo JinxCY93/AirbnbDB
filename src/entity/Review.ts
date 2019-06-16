@@ -25,10 +25,8 @@ export class Review {
   users: User
 
   @OneToMany(type => Rating, ratings => ratings.reviews)
-  @JoinColumn({ name: "rating_id" })
   ratings: Rating
 
   @OneToMany(type => Comment, comments => comments.reviews)
-  @JoinColumn({ name: "comment_id" })
   comments: Comment
 }

@@ -2,7 +2,6 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToMan
 import { Property } from "./Property";
 import { User } from "./User";
 import { Rating } from "./Rating";
-import { Comment } from "./Comment";
 
 @Entity()
 export class Review {
@@ -26,7 +25,4 @@ export class Review {
 
   @OneToMany(type => Rating, ratings => ratings.reviews)
   ratings: Rating
-
-  @OneToMany(type => Comment, comments => comments.reviews)
-  comments: Comment
 }

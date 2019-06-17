@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
-import { Review } from "./Review";
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from "typeorm";
+import { Rating } from "./Rating";
 
 @Entity()
 export class Comment {
@@ -16,7 +16,7 @@ export class Comment {
   @Column("datetime")
   updated_at;
 
-  @ManyToOne(type => Review, reviews => reviews.comments)
-  @JoinColumn({ name: "review_id" })
-  reviews: Review[]
+  @OneToOne(type => Rating, ratings => ratings.comments)
+  @JoinColumn({ name: "rating_id" })
+  ratings: Rating[]
 }

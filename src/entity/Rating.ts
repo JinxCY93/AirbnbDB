@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToOne } from "typeorm";
 import { Review } from "./Review";
+import { Comment } from "./Comment";
 
 @Entity()
 export class Rating {
@@ -19,4 +20,7 @@ export class Rating {
   @ManyToOne(type => Review, reviews => reviews.ratings)
   @JoinColumn({ name: "review_id" })
   reviews: Review[]
+
+  @OneToOne(type => Comment, comments => comments.ratings)
+  comments: Comment
 }

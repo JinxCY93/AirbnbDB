@@ -2,7 +2,7 @@
    "type": "mssql",
    "host": "localhost",
    "username": "testing123",
-   "password": "$Jehovah113",
+   "password": "*",
    "database": "Airbnb",
    "synchronize": true,
    "logging": false,
